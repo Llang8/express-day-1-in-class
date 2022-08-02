@@ -1,0 +1,18 @@
+<%- include('../partials/header.ejs') %>
+
+<h1>Home</h1>
+<%= user.name %>
+<%= user.email %>
+<% if (user.posts.length < 5) { %>
+    <h2>You only have <%= user.posts.length %> post(s)</h2>
+<% } else { %>    
+    <h2>You have <%= user.posts.length %> post(s)!</h2>
+<% } %>
+
+<% for (const post of user.posts) { %>
+    <div class="card">
+        <h3><%= post.body %></h3>
+    </div>
+<% } %>
+
+<%- include('../partials/footer.ejs') %>
